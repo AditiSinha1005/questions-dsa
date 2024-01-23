@@ -5,7 +5,6 @@
 the approach of the following question is simple and easy
 - point 1
 - point 2
--  subpoint1
 
 ## code
 ```cpp
