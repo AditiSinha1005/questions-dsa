@@ -55,4 +55,43 @@ int removeDuplicates(vector<int>& nums) {
         return count;
     }
 ```
+# [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/description/)
 
+## approach-> 
+Normal approach solved using map and normal iteration 
+Time Complexity : O(n)
+
+
+## code
+```cpp
+   int findMaxConsecutiveOnes(vector<int>& nums) {
+        int max=INT_MIN;
+        int count=0;
+        map<int,int>m;
+        for(int i=0;i<nums.size();i++)
+        m[nums[i]]++;
+        for(auto i:m)
+        {
+            if(i.first==0 && i.second==nums.size())
+            return 0;
+        }
+        for(int i=0;i<nums.size()-1;i++)
+        {
+            if(nums[i]==nums[i+1] && nums[i]==1)
+            count++;
+            if(count>0 && nums[i]!=nums[i+1])
+            {
+                if(max<count)
+                {
+                max=count;
+                }
+                count=0;
+            }
+        }
+        if(max<count)
+        {
+            max=count;
+        }
+        return max+1;
+    }
+```
