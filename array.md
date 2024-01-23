@@ -29,4 +29,30 @@ Space complexity: O(1)
     }
 ```
 
+# [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+
+## approach-> 
+Quite simple code solved using maps
+
+
+## code
+```cpp
+int removeDuplicates(vector<int>& nums) {
+        map<int,int>m;
+        for(int i=0;i<nums.size();i++)
+        {
+            m[nums[i]]++;
+        }
+        int count=0;
+        int p=0;
+        for(auto i:m)
+        {
+        count++;
+        nums[p]=i.first;
+        p++;
+        }
+       
+        return count;
+    }
+```
 
