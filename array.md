@@ -95,3 +95,39 @@ Time Complexity : O(n)
         return max+1;
     }
 ```
+# [152. Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/description/)
+
+## approach-> 
+Approach of this question is similar to that of kadane's algorithm we start from the start and
+take note of the max value and again do the same from the reverse side and then find the max value of product
+Time Complexity: O(n)
+
+
+## code
+```cpp
+class Solution {
+public:
+    int maxProduct(vector<int>& nums) {
+        int maxx = INT_MIN;
+        int prod=1;
+
+        for(int i=0;i<nums.size();i++)
+        {
+          prod*=nums[i];
+          maxx=max(prod,maxx);
+          if(prod==0)
+           prod=1;
+        }
+        prod=1;
+        for(int i=nums.size()-1;i>=0;i--)
+        {
+          prod*=nums[i];
+
+          maxx=max(prod,maxx);
+          if(prod==0)
+           prod=1;
+        }
+        return maxx;
+    }
+};
+```
